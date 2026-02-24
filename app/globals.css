@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
+/* Default = dark mode (like thomas-sanlis.com) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #111111;
+  --foreground: #fafafa;
+  --accent: #e5e5e5;
+  --muted: #a3a3a3;
+}
+
+[data-theme="light"] {
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --accent: #2d2d2d;
+  --muted: #6b6b6b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.01ms, color 0.01ms;
+}
+
+/* View Transitions API - theme toggle (like Telegram / Thomas Sanlis) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Nav tab hover animation */
+@keyframes nav-pill-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+nav a[href] span:last-child {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+nav a[href]:hover span:last-child {
+  transform: translateY(-1px);
+}
+
+/* Hide scrollbar on mobile nav while keeping scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Page transition - pop up from bottom */
+@keyframes page-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-in {
+  animation: page-slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Staggered children - components pop up from bottom */
+.animate-children-in > * {
+  opacity: 0;
+  animation: page-slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-children-in > *:nth-child(1) { animation-delay: 0.05s; }
+.animate-children-in > *:nth-child(2) { animation-delay: 0.12s; }
+.animate-children-in > *:nth-child(3) { animation-delay: 0.19s; }
+.animate-children-in > *:nth-child(4) { animation-delay: 0.26s; }
+.animate-children-in > *:nth-child(5) { animation-delay: 0.33s; }
+.animate-children-in > *:nth-child(6) { animation-delay: 0.4s; }
+.animate-children-in > *:nth-child(7) { animation-delay: 0.47s; }
+.animate-children-in > *:nth-child(8) { animation-delay: 0.54s; }
+.animate-children-in > *:nth-child(9) { animation-delay: 0.61s; }
+.animate-children-in > *:nth-child(10) { animation-delay: 0.68s; }
+
+/* Thomas Sanlis style - horizontal marquee gallery */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.mask-fade-edges {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
