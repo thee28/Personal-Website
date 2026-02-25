@@ -114,6 +114,7 @@ nav a[href]:hover span:last-child {
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+  will-change: transform;
 }
 
 .group:hover .animate-marquee {

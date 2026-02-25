@@ -67,7 +67,7 @@ export default function About() {
           <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-[var(--foreground)]/5 ring-1 ring-[var(--foreground)]/5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://picsum.photos/seed/about/600/800"
+              src="https://i.imgur.com/VGPJrDU.jpeg"
               alt=""
               className="w-full h-full object-cover"
             />

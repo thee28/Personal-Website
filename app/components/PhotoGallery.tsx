@@ -1,20 +1,20 @@
 "use client";
 
 const images = [
-  "https://picsum.photos/seed/1/400/400",
-  "https://picsum.photos/seed/2/400/400",
-  "https://picsum.photos/seed/3/400/400",
-  "https://picsum.photos/seed/4/400/400",
-  "https://picsum.photos/seed/5/400/400",
-  "https://picsum.photos/seed/6/400/400",
-  "https://picsum.photos/seed/7/400/400",
-  "https://picsum.photos/seed/8/400/400",
+  "https://i.imgur.com/KdwEm7X.jpeg",
+  "https://i.imgur.com/0OTSFXQ.jpeg",
+  "https://i.imgur.com/Ukk7ytH.jpeg",
+  "https://i.imgur.com/4K85HhE.jpeg",
+  "https://i.imgur.com/IhPf6Ds.jpeg",
+  "https://i.imgur.com/cCtIIjC.jpeg",
+  "https://i.imgur.com/yZNF6uS.jpeg",
+  "https://i.imgur.com/Pes1jZg.jpeg",
 ];
 
 export function PhotoGallery() {
   return (
     <div className="group w-full overflow-hidden mask-fade-edges">
-      <div className="flex gap-4 animate-marquee">
+      <div className="inline-flex flex-nowrap gap-4 animate-marquee">
         {[...images, ...images].map((src, i) => (
           <div
             key={i}

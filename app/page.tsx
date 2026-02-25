@@ -11,8 +11,8 @@ export default function Home() {
           Theetat Thakong
         </h1>
         <p className="text-xl md:text-2xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          A brief tagline or description about what you do — designer, developer,
-          creator. This space is yours to make it personal.
+          I am a freshman at Tufts University majoring in Computer Science with a minor in 
+          Music, Sound, and Culture.
         </p>
         <div className="pt-4">
           <a

@@ -1,23 +1,12 @@
 export default function Projects() {
   const projects = [
     {
-      title: "Project One",
-      description: "A short description of your first project and what it does.",
-      tags: ["React", "TypeScript", "Tailwind"],
-      href: "#",
+      title: "a11yGuard | JumboHack 2026 AI Track Winner 🏆",
+      description: "Collaborated in a team of 6 to build a project in the AI track of the 2026 JumboHack Hackathon at Tufts University. a11yGuard is a GitHub Action Workflow that checks for accessibility issues in a GitHub repository when a pull request is created and incorporates Gemini LLM API for automated code fixes and feedback.",
+      tags: ["JavaScript", "TypeScript", "Yaml", "Openrouter", "Next.js", "Vercel"],
+      href: "https://a11yguardsite.vercel.app/",
     },
-    {
-      title: "Project Two",
-      description: "Another project with its own description and tech stack.",
-      tags: ["Next.js", "Node", "PostgreSQL"],
-      href: "#",
-    },
-    {
-      title: "Project Three",
-      description: "Your third project — keep adding as you build more.",
-      tags: ["Python", "ML", "API"],
-      href: "#",
-    },
+
   ];
 
   return (
@@ -37,7 +26,7 @@ export default function Projects() {
             key={project.title}
             className="group border-b border-[var(--foreground)]/10 pb-12 last:border-0"
           >
-            <a href={project.href} className="block">
+            <a href={project.href} target="_blank" rel="noopener noreferrer" className="block">
               <h2 className="text-2xl md:text-3xl font-medium mb-3 group-hover:text-[var(--muted)] transition-colors">
                 {project.title}
               </h2>

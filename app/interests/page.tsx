@@ -1,20 +1,20 @@
 export default function Interests() {
   const interests = [
     {
-      title: "Photography",
-      description: "Capturing moments and exploring light.",
+      title: "Soccer",
+      description: "Playing soccer and watching soccer.",
     },
     {
-      title: "Reading",
-      description: "Fiction, non-fiction, and everything in between.",
+      title: "Guitar",
+      description: "Playing guitar and discovering new music.",
     },
     {
-      title: "Music",
-      description: "Playing instruments or discovering new artists.",
+      title: "Singing",
+      description: "Singing and discovering new music.",
     },
     {
-      title: "Travel",
-      description: "Exploring new places and cultures.",
+      title: "Video Games",
+      description: "Playing video games and creating video games.",
     },
   ];
 
