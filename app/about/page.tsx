@@ -17,9 +17,10 @@ export default function About() {
             Who I am
           </h2>
           <p className="text-[var(--muted)] leading-relaxed">
-            I&apos;m a developer, designer, and creator based in [Your City]. 
-            I love building things that live on the internet — from websites 
-            and apps to side projects that scratch a personal itch.
+            I&apos;m a software engineer based in Medford, MA. 
+            I was born in Thailand and moved to the United States when I was 11 years old.
+            I am currently a freshman at Tufts University majoring in Computer Science with a minor in 
+            Music, Sound, and Culture.
           </p>
         </section>
 
@@ -28,9 +29,7 @@ export default function About() {
             What I do
           </h2>
           <p className="text-[var(--muted)] leading-relaxed">
-            I focus on creating clean, thoughtful digital experiences. 
-            Whether it&apos;s writing code, designing interfaces, or exploring 
-            new technologies, I&apos;m always learning and pushing myself to grow.
+            I enjoy building and creating things with code. I am currently learning more about web development and video game development.
           </p>
         </section>
 
@@ -40,7 +39,7 @@ export default function About() {
           </h2>
           <p className="text-[var(--muted)] leading-relaxed mb-4">
             I&apos;m always open to new opportunities and interesting conversations. 
-            Feel free to reach out through the links in the header.
+            Feel free to reach out to my email at <a href="mailto:theetat.thakong@tufts.edu" className="text-[var(--foreground)] hover:text-[var(--muted)] transition-colors">theetat.thakong@tufts.edu</a> or through the links in the header.
           </p>
           <div className="flex gap-4">
             <a

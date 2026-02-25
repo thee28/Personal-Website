@@ -2,20 +2,21 @@ export default function Interests() {
   const interests = [
     {
       title: "Soccer",
-      description: "Playing soccer and watching soccer.",
+      description: "I've started playing soccer in 6th grade and it has been my favorite sport ever since. I've played for my high school team and plan to play recreationally in college. My favorite team is Liverpool FC in the English Premier League.",
     },
     {
       title: "Guitar",
-      description: "Playing guitar and discovering new music.",
+      description: "I've been playing guitar for about 1 year now. I've been playing for fun and for my own enjoyment. I've learned to play a few songs by myself and looking for new songs to learn.",
     },
     {
       title: "Singing",
-      description: "Singing and discovering new music.",
+      description: "I've always enjoyed singing for fun. While I'm not the best singer, I enjoy singing and I'm always looking to improve. I love to sing different genres of music and I'm always looking to learn new songs.",
     },
     {
       title: "Video Games",
-      description: "Playing video games and creating video games.",
+      description: "Playing video games is something that I've always enjoyed. I've played a lot of games over the years and I'm always looking for cool new games to play! My favorites include: Assassin's Creed series, Hitman series, Minecraft, and more.",
     },
+
   ];
 
   return (
