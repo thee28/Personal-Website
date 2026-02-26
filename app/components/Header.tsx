@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
@@ -25,29 +25,47 @@ export function Header() {
   );
   const isActive = activeIndex >= 0;
 
-  useEffect(() => {
+  const updateUnderline = useCallback(() => {
     if (!navRef.current || !isActive) return;
     const links = navRef.current.querySelectorAll("a");
     const activeEl = links[activeIndex] as HTMLElement | undefined;
     if (activeEl) {
       const navRect = navRef.current.getBoundingClientRect();
       const elRect = activeEl.getBoundingClientRect();
+      const scrollLeft = navRef.current.scrollLeft;
       setUnderlineStyle({
-        left: elRect.left - navRect.left,
+        left: elRect.left - navRect.left + scrollLeft,
         width: elRect.width,
       });
     }
-  }, [pathname, activeIndex, isActive]);
+  }, [activeIndex, isActive]);
+
+  useEffect(() => {
+    updateUnderline();
+  }, [pathname, updateUnderline]);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    nav.addEventListener("scroll", updateUnderline);
+    const ro = new ResizeObserver(updateUnderline);
+    ro.observe(nav);
+    return () => {
+      nav.removeEventListener("scroll", updateUnderline);
+      ro.disconnect();
+    };
+  }, [updateUnderline]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 sm:px-6 md:px-12 lg:px-24 bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--foreground)]/5">
       <div className="flex items-center justify-between max-w-6xl mx-auto">
-        {/* Left: Nav */}
-        <div className="flex items-center">
+        {/* Left: Nav - min-w-0 allows shrinking on mobile so right section (ThemeToggle) stays visible */}
+        <div className="flex items-center min-w-0">
           <nav
             ref={navRef}
-            className="relative flex items-center gap-6 md:gap-8 min-w-0 overflow-x-auto scrollbar-hide"
+            className="min-w-0 overflow-x-auto scrollbar-hide"
           >
+            <div className="relative flex items-center gap-6 md:gap-8 min-w-max shrink-0">
             {navItems.map((item) => {
               const isItemActive =
                 pathname === item.href ||
@@ -79,6 +97,7 @@ export function Header() {
                 aria-hidden
               />
             )}
+            </div>
           </nav>
         </div>
 
