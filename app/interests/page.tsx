@@ -5,12 +5,12 @@ export default function Interests() {
       description: "I've started playing soccer in 6th grade and it has been my favorite sport ever since. I've played for my high school team and plan to play recreationally in college. My favorite team is Liverpool FC in the English Premier League.",
     },
     {
-      title: "Guitar",
-      description: "I've been playing guitar for about 1 year now. I've been playing for fun and for my own enjoyment. I've learned to play a few songs by myself and looking for new songs to learn.",
+      title: "Guitar + Singing",
+      description: "I enjoy playing guitar and singing. I've been playing guitar for about 1 year now and I've always been singing for fun. I've learned to play a few songs by myself and looking for new songs to learn.",
     },
     {
-      title: "Singing",
-      description: "I've always enjoyed singing for fun. While I'm not the best singer, I enjoy singing and I'm always looking to improve. I love to sing different genres of music and I'm always looking to learn new songs.",
+      title: "Anime",
+      description: "Growing up in Thailand, I've always enjoyed watching anime since I was a kid. Though I've switched to reading manga, I still enjoy watching them every now and then. My favorites include: One Piece, Gurren Lagann, Reborn! and Studio Ghibli movies.",
     },
     {
       title: "Video Games",
