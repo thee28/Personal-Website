@@ -4,8 +4,8 @@ import { Header } from "./components/Header";
 import { PageTransition } from "./components/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio",
-  description: "A clean, elegant personal website",
+  title: "Theetat Thakong",
+  description: "Theetat Thakong's personal portfolio website",
 };
 
 export default function RootLayout({
