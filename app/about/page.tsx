@@ -17,10 +17,7 @@ export default function About() {
             Who I am
           </h2>
           <p className="text-[var(--muted)] leading-relaxed">
-            I&apos;m a software engineer based in Medford, MA. 
-            I was born in Thailand and moved to the United States when I was 11 years old.
-            I am currently a freshman at Tufts University majoring in Computer Science with a minor in 
-            Music, Sound, and Culture.
+            I&apos;m I'm a software engineer based in Medford, MA. I was born in Thailand and moved to the US when I was 11. Right now I'm a freshman at Tufts University studying Computer Science with a minor in Music, Sound, and Culture.
           </p>
         </section>
 

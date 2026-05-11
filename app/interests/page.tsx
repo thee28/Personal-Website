@@ -2,19 +2,19 @@ export default function Interests() {
   const interests = [
     {
       title: "Soccer",
-      description: "I've started playing soccer in 6th grade and it has been my favorite sport ever since. I've played for my high school team and plan to play recreationally in college. My favorite team is Liverpool FC in the English Premier League.",
+      description: "Soccer's been my thing since 6th grade. I played for my high school team and will probably keep playing recreationally in college. YNWA!",
     },
     {
       title: "Guitar + Singing",
-      description: "I enjoy playing guitar and singing. I've been playing guitar for about 1 year now and I've always been singing for fun. I've learned to play a few songs by myself and looking for new songs to learn.",
+      description: "I've been playing guitar for about a year now and I've always sung just for fun. I've picked up a few songs on my own and I'm always on the lookout for new ones to learn.",
     },
     {
       title: "Anime",
-      description: "Growing up in Thailand, I've always enjoyed watching anime since I was a kid. Though I've switched to reading manga, I still enjoy watching them every now and then. My favorites include: One Piece, Gurren Lagann, Reborn! and Studio Ghibli movies.",
+      description: "Growing up in Thailand, anime was just part of my childhood. These days I've mostly switched to reading manga, but I still watch every now and then. Some of my favorites are One Piece, Gurren Lagann, JoJo's Bizarre Adventure, Reborn!, and Studio Ghibli movies.",
     },
     {
       title: "Video Games",
-      description: "Playing video games is something that I've always enjoyed. I've played a lot of games over the years and I'm always looking for cool new games to play! My favorites include: Assassin's Creed series, Hitman series, Minecraft, and more.",
+      description: "I've been into video games for as long as I can remember. Always looking for cool new stuff to play. Big fan of Assassin's Creed, Hitman, Minecraft, Zelda, and plenty of others.",
     },
 
   ];
@@ -26,7 +26,7 @@ export default function Interests() {
           Interests
         </h1>
         <p className="text-[var(--muted)] text-lg">
-          What keeps me curious and inspired.
+          The stuff I can't stop thinking about
         </p>
       </header>
 

@@ -16,7 +16,7 @@ export default function Projects() {
           Projects
         </h1>
         <p className="text-[var(--muted)] text-lg">
-          Things I&apos;ve built and shipped.
+          Some things I've worked on along the way.
         </p>
       </header>
 
