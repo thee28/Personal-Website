@@ -1,9 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { motion, useReducedMotion, useSpring } from "framer-motion"
+import {
+  motion,
+  useReducedMotion,
+  useSpring,
+  type HTMLMotionProps,
+} from "framer-motion"
 
-type HoverPanelProps = React.HTMLAttributes<HTMLDivElement> & {
+type HoverPanelProps = HTMLMotionProps<"div"> & {
   children: React.ReactNode
 }
 

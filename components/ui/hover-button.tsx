@@ -3,17 +3,27 @@
 import * as React from "react"
 
 type HoverButtonProps =
-  | ({
-      href: string
-      children: React.ReactNode
-    } & React.AnchorHTMLAttributes<HTMLAnchorElement>)
-  | ({
-      href?: undefined
-      children: React.ReactNode
-    } & React.ButtonHTMLAttributes<HTMLButtonElement>)
+  | AnchorHoverButtonProps
+  | ButtonHoverButtonProps
+
+type AnchorHoverButtonProps = {
+  href: string
+  children: React.ReactNode
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>
+
+type ButtonHoverButtonProps = {
+  href?: undefined
+  children: React.ReactNode
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ")
+}
+
+function isAnchorHoverButton(
+  props: HoverButtonProps
+): props is AnchorHoverButtonProps {
+  return typeof props.href === "string"
 }
 
 export function HoverButton(props: HoverButtonProps) {
@@ -123,7 +133,7 @@ export function HoverButton(props: HoverButtonProps) {
     buttonRef.current = node
   }
 
-  if (props.href) {
+  if (isAnchorHoverButton(props)) {
     const { children, className, href, style, ...anchorProps } = props
 
     return (
