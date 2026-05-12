@@ -1,3 +1,5 @@
+import { HoverPanel } from "@/components/ui/hover-panel";
+
 export default function Interests() {
   const interests = [
     {
@@ -26,19 +28,16 @@ export default function Interests() {
           Interests
         </h1>
         <p className="text-[var(--muted)] text-lg">
-          The stuff I can't stop thinking about
+          The stuff I can&apos;t stop thinking about
         </p>
       </header>
 
       <div className="grid gap-8 md:grid-cols-2">
         {interests.map((item) => (
-          <article
-            key={item.title}
-            className="p-6 rounded-2xl bg-[var(--foreground)]/5 border border-[var(--foreground)]/5 hover:border-[var(--foreground)]/10 transition-colors"
-          >
+          <HoverPanel key={item.title}>
             <h2 className="text-xl font-medium mb-2">{item.title}</h2>
             <p className="text-[var(--muted)]">{item.description}</p>
-          </article>
+          </HoverPanel>
         ))}
       </div>
     </div>

@@ -3,27 +3,38 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
-export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+const THEME_COOKIE_NAME = "theme";
+const THEME_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
+
+function syncThemeState(isDark: boolean) {
+  const bgColor = isDark ? "#121212" : "#faf9f7";
+  if (isDark) {
+    document.documentElement.removeAttribute("data-theme");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+  document.documentElement.style.background = bgColor;
+  document.body.style.background = bgColor;
+}
+
+type ThemeToggleProps = {
+  initialTheme: "light" | "dark";
+};
+
+export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
+  const [isDark, setIsDark] = useState(initialTheme !== "light");
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const theme = document.documentElement.getAttribute("data-theme");
-    setIsDark(theme !== "light");
+  const persistTheme = useCallback((dark: boolean) => {
+    const theme = dark ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    document.cookie = `${THEME_COOKIE_NAME}=${theme}; path=/; max-age=${THEME_COOKIE_MAX_AGE_SECONDS}; samesite=lax`;
   }, []);
 
-  const persistTheme = (dark: boolean) => {
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  };
-
-  const applyTheme = (newIsDark: boolean) => {
-    const bgColor = newIsDark ? "#111111" : "#faf9f7";
-    document.documentElement.setAttribute("data-theme", newIsDark ? "" : "light");
-    document.documentElement.style.background = bgColor;
-    document.body.style.background = bgColor;
-    persistTheme(newIsDark);
-    setIsDark(newIsDark);
-  };
+  useEffect(() => {
+    syncThemeState(isDark);
+    persistTheme(isDark);
+  }, [isDark, persistTheme]);
 
   const triggerThemeSwitch = useCallback(async () => {
     const button = buttonRef.current;
@@ -35,13 +46,13 @@ export function ThemeToggle() {
         typeof document.startViewTransition !== "function" ||
         window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ) {
-        applyTheme(newIsDark);
+        setIsDark(newIsDark);
         return;
       }
 
       const transition = document.startViewTransition(() => {
         flushSync(() => {
-          applyTheme(newIsDark);
+          setIsDark(newIsDark);
         });
       });
 
@@ -77,7 +88,7 @@ export function ThemeToggle() {
     <button
       ref={buttonRef}
       onClick={() => triggerThemeSwitch()}
-      className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-110 active:scale-95 bg-[var(--foreground)] text-[var(--background)] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]/30"
+      className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[var(--foreground)] transition-colors duration-200 hover:bg-[var(--foreground)]/8 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)]/20 active:scale-95"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? (

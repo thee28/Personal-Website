@@ -6,7 +6,10 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div key={pathname} className="animate-page-in">
+    <div
+      key={pathname}
+      className={pathname === "/" ? undefined : "animate-page-in"}
+    >
       {children}
     </div>
   );

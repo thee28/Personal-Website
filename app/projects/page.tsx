@@ -1,3 +1,5 @@
+import { HoverPanel } from "@/components/ui/hover-panel";
+
 export default function Projects() {
   const projects = [
     {
@@ -6,7 +8,6 @@ export default function Projects() {
       tags: ["JavaScript", "TypeScript", "Yaml", "Openrouter", "Next.js", "Vercel"],
       href: "https://a11yguardsite.vercel.app/",
     },
-
   ];
 
   return (
@@ -16,35 +17,34 @@ export default function Projects() {
           Projects
         </h1>
         <p className="text-[var(--muted)] text-lg">
-          Some things I've worked on along the way.
+          Things I&apos;ve worked on along the way.
         </p>
       </header>
 
-      <div className="grid gap-12 md:gap-16 animate-children-in">
-        {projects.map((project, i) => (
-          <article
-            key={project.title}
-            className="group border-b border-[var(--foreground)]/10 pb-12 last:border-0"
-          >
+      <div className="space-y-8">
+        {projects.map((project) => (
+          <HoverPanel key={project.title} className="group p-0">
             <a href={project.href} target="_blank" rel="noopener noreferrer" className="block">
-              <h2 className="text-2xl md:text-3xl font-medium mb-3 group-hover:text-[var(--muted)] transition-colors">
-                {project.title}
-              </h2>
-              <p className="text-[var(--muted)] mb-4 max-w-2xl">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-sm rounded-full bg-[var(--foreground)]/5 text-[var(--muted)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="p-6">
+                <h2 className="mb-3 text-2xl font-medium transition-colors group-hover:text-[var(--muted)] md:text-3xl">
+                  {project.title}
+                </h2>
+                <p className="mb-4 max-w-2xl text-[var(--muted)]">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-[var(--foreground)]/5 px-3 py-1 text-sm text-[var(--muted)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </a>
-          </article>
+          </HoverPanel>
         ))}
       </div>
     </div>

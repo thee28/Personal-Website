@@ -2,7 +2,7 @@
 
 /* Default = dark mode (like thomas-sanlis.com) */
 :root {
-  --background: #111111;
+  --background: #121212;
   --foreground: #fafafa;
   --accent: #e5e5e5;
   --muted: #a3a3a3;
@@ -88,6 +88,75 @@ nav a[href]:hover span:last-child {
 
 .animate-page-in {
   animation: page-slide-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Home hero — Thomas Sanlis style (blur + scale in). Started via .home-reveal--play after client mount so SSR/hydration actually shows it. */
+@keyframes home-blur-reveal {
+  from {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.home-reveal--idle .home-reveal-item {
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(1.1);
+}
+
+.home-reveal--play .home-reveal-item {
+  animation: home-blur-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-reveal--play .home-reveal-stagger > *:nth-child(1) {
+  animation-delay: 0s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(5) {
+  animation-delay: 0.32s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(6) {
+  animation-delay: 0.4s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(7) {
+  animation-delay: 0.48s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(8) {
+  animation-delay: 0.56s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(9) {
+  animation-delay: 0.64s;
+}
+.home-reveal--play .home-reveal-stagger > *:nth-child(10) {
+  animation-delay: 0.72s;
+}
+
+.home-reveal--play .home-reveal-gallery.home-reveal-item {
+  animation-delay: 0.38s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-reveal--idle .home-reveal-item,
+  .home-reveal--play .home-reveal-item {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
 }
 
 /* Staggered children - components pop up from bottom */

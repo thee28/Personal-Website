@@ -13,8 +13,8 @@ const images = [
 
 export function PhotoGallery() {
   return (
-    <div className="group w-full overflow-hidden mask-fade-edges">
-      <div className="inline-flex flex-nowrap gap-4 animate-marquee">
+    <div className="group w-full overflow-hidden mask-fade-edges py-10 sm:py-12 md:py-14">
+      <div className="inline-flex flex-nowrap items-center gap-8 sm:gap-10 md:gap-12 lg:gap-14 animate-marquee">
         {[...images, ...images].map((src, i) => (
           <div
             key={i}
