@@ -1,4 +1,5 @@
 import AboutPortrait from "../components/AboutPortrait";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function About() {
   return (

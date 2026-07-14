@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmokeBackground } from "@/components/ui/spooky-smoke-animation";
 import { Header } from "./components/Header";
 import { PageTransition } from "./components/PageTransition";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Theetat Thakong",
@@ -49,6 +50,7 @@ export default async function RootLayout({
             <PageTransition>{children}</PageTransition>
           </main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
