@@ -111,42 +111,7 @@ nav a[href]:hover span:last-child {
 }
 
 .home-reveal--play .home-reveal-item {
-  animation: home-blur-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.home-reveal--play .home-reveal-stagger > *:nth-child(1) {
-  animation-delay: 0s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(2) {
-  animation-delay: 0.08s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(3) {
-  animation-delay: 0.16s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(4) {
-  animation-delay: 0.24s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(5) {
-  animation-delay: 0.32s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(6) {
-  animation-delay: 0.4s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(7) {
-  animation-delay: 0.48s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(8) {
-  animation-delay: 0.56s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(9) {
-  animation-delay: 0.64s;
-}
-.home-reveal--play .home-reveal-stagger > *:nth-child(10) {
-  animation-delay: 0.72s;
-}
-
-.home-reveal--play .home-reveal-gallery.home-reveal-item {
-  animation-delay: 0.38s;
+  animation: home-blur-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
