@@ -50,13 +50,25 @@ export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
         return;
       }
 
+      window.dispatchEvent(new Event("theme-transition-start"));
+
       const transition = document.startViewTransition(() => {
         flushSync(() => {
           setIsDark(newIsDark);
         });
       });
 
-      await transition.ready;
+      transition.finished.finally(() => {
+        window.dispatchEvent(new Event("theme-transition-end"));
+      });
+
+      try {
+        await transition.ready;
+      } catch {
+        // Transition was skipped/aborted (e.g. rapid double-tap) — theme is
+        // already applied, so just skip the circle animation.
+        return;
+      }
 
       const { top, left, width, height } = button.getBoundingClientRect();
       const x = left + width / 2;

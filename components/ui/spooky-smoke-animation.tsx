@@ -90,7 +90,8 @@ class Renderer {
       return;
     }
 
-    const dpr = Math.max(1, window.devicePixelRatio);
+    // Smoke is low-frequency/blurry — rendering above 1.5x wastes GPU on phones (DPR 3)
+    const dpr = Math.min(Math.max(1, window.devicePixelRatio), 1.5);
     const { innerWidth: width, innerHeight: height } = window;
     this.canvas.width = width * dpr;
     this.canvas.height = height * dpr;
@@ -276,14 +277,36 @@ export function SmokeBackground({
     window.addEventListener("resize", handleResize);
 
     let animationFrameId = 0;
+    let paused = false;
+    let lastFrame = 0;
+    // Smoke drifts slowly (time * 0.01 in the shader) — 30fps is visually identical
+    const frameInterval = 1000 / 30;
+
     const loop = (now: number) => {
-      renderer.render(now);
       animationFrameId = window.requestAnimationFrame(loop);
+      if (paused || now - lastFrame < frameInterval) {
+        return;
+      }
+      lastFrame = now;
+      renderer.render(now);
     };
     animationFrameId = window.requestAnimationFrame(loop);
 
+    // Freeze the smoke while the theme view-transition runs so the GPU is free
+    // for the circle reveal; the last rendered frame stays on screen.
+    const pause = () => {
+      paused = true;
+    };
+    const resume = () => {
+      paused = false;
+    };
+    window.addEventListener("theme-transition-start", pause);
+    window.addEventListener("theme-transition-end", resume);
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("theme-transition-start", pause);
+      window.removeEventListener("theme-transition-end", resume);
       window.cancelAnimationFrame(animationFrameId);
       renderer.reset();
     };

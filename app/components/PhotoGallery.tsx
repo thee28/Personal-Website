@@ -28,6 +28,7 @@ export function PhotoGallery() {
               alt=""
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
         ))}
