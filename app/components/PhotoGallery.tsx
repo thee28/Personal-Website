@@ -1,14 +1,17 @@
 "use client";
 
+// imgur "l" suffix = 640px variant (~40KB) instead of the full-res original
+// (up to 3.6MB). Boxes render at most 234px, so 640px stays sharp on retina
+// while cutting decode/download that was janking the homepage on refresh.
 const images = [
-  "https://i.imgur.com/KdwEm7X.jpeg",
-  "https://i.imgur.com/0OTSFXQ.jpeg",
-  "https://i.imgur.com/Ukk7ytH.jpeg",
-  "https://i.imgur.com/4K85HhE.jpeg",
-  "https://i.imgur.com/IhPf6Ds.jpeg",
-  "https://i.imgur.com/cCtIIjC.jpeg",
-  "https://i.imgur.com/yZNF6uS.jpeg",
-  "https://i.imgur.com/Pes1jZg.jpeg",
+  "https://i.imgur.com/KdwEm7Xl.jpeg",
+  "https://i.imgur.com/0OTSFXQl.jpeg",
+  "https://i.imgur.com/Ukk7ytHl.jpeg",
+  "https://i.imgur.com/4K85HhEl.jpeg",
+  "https://i.imgur.com/IhPf6Dsl.jpeg",
+  "https://i.imgur.com/cCtIIjCl.jpeg",
+  "https://i.imgur.com/yZNF6uSl.jpeg",
+  "https://i.imgur.com/Pes1jZgl.jpeg",
 ];
 
 export function PhotoGallery() {
