@@ -7,14 +7,14 @@ export default function Projects() {
       description:
         "Built a full-stack historical dashboard for the completed 2026 World Cup: group standings, an interactive knockout bracket, team scout reports with radar charts, player stat pages, and tournament leaderboards. FastAPI async backend serves data from a PostgreSQL store seeded by a Pandas ETL pipeline, with a React + Tailwind frontend mirroring a finalized design export.",
       tags: ["React", "TypeScript", "Tailwind", "FastAPI", "PostgreSQL", "Docker"],
-      href: "",
+      href: "https://pitchsidedata.app/",
     },
     {
       title: "TuneBug",
       description:
         "Built a gamified music-learning web app that turns ear training and music theory into a game. Learners climb a Duolingo-style path of stages, units, and lessons, with 20 exercise types across ear training, pitch, reading, and rhythm. Features live microphone pitch detection (sing to match a note), XP, streaks, hearts, daily quests, spaced-repetition mastery, and weekly leaderboards. Full-stack Next.js 16 with real-time audio via Tone.js and pitchy.",
       tags: ["TypeScript", "Next.js", "React", "Prisma", "PostgreSQL", "Tone.js", "Tailwind", "NextAuth", "Vercel"],
-      href: "https://tunebug.vercel.app/",
+      href: "https://tunebug.app/",
     },
     {
       title: "a11yGuard | JumboHack 2026 AI Track Winner 🏆",
