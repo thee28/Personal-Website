@@ -164,7 +164,7 @@ export function Header({ initialTheme }: HeaderProps) {
         >
           <div
             ref={shellRef}
-            className={`relative mx-auto flex w-full min-w-0 items-center rounded-xl border border-[var(--foreground)]/10 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] [transform:translateZ(0)] backface-hidden transition-all duration-500 motion-reduce:transition-none will-change-[box-shadow,background-color,padding,border-radius,max-width] motion-reduce:will-change-auto ${
+            className={`relative mx-auto flex w-full min-w-0 items-center rounded-xl border border-white/25 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] [transform:translateZ(0)] backface-hidden transition-all duration-500 motion-reduce:transition-none will-change-[box-shadow,background-color,padding,border-radius,max-width] motion-reduce:will-change-auto ${
               expanded
                 ? "max-w-full bg-[var(--background)]/45 py-3 pl-3 pr-2 backdrop-blur-2xl sm:py-3.5 sm:pl-4 sm:pr-2.5"
                 : "max-w-[min(100%,calc(72rem+2.5rem))] bg-[var(--background)]/90 py-2 pl-3 pr-2 backdrop-blur-xl sm:py-2.5 sm:pl-4 sm:pr-2.5"

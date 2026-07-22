@@ -26,6 +26,11 @@
   box-sizing: border-box;
 }
 
+/* LiquidButton label is hardcoded white by the lib — flip to dark in light mode. */
+[data-theme="light"] .lg-button-text {
+  color: var(--foreground);
+}
+
 html {
   scroll-behavior: smooth;
 }

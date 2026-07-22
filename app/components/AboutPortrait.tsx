@@ -47,7 +47,7 @@ export default function AboutPortrait() {
 
   return (
     <motion.div
-      className="relative isolate overflow-hidden rounded-3xl bg-[rgba(43,55,80,0.1)] p-2 backdrop-blur-lg before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[inherit] before:content-[''] before:shadow-[inset_0_0_0_1px_rgba(170,202,255,0.2),inset_0_0_16px_0_rgba(170,202,255,0.1),inset_0_-3px_12px_0_rgba(170,202,255,0.15),0_1px_3px_0_rgba(0,0,0,0.50),0_4px_12px_0_rgba(0,0,0,0.45)] before:mix-blend-multiply"
+      className="relative isolate overflow-hidden rounded-3xl bg-[rgba(43,55,80,0.1)] p-2 backdrop-blur-lg before:pointer-events-none before:absolute before:inset-0 before:z-[1] before:rounded-[inherit] before:content-[''] before:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.25),inset_0_0_16px_0_rgba(255,255,255,0.08),inset_0_-3px_12px_0_rgba(255,255,255,0.12),0_1px_3px_0_rgba(0,0,0,0.50),0_4px_12px_0_rgba(0,0,0,0.45)] before:mix-blend-multiply"
       onPointerLeave={resetMotion}
       onPointerMove={handlePointerMove}
       style={

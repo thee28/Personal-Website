@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { HoverButton } from "@/components/ui/hover-button";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { LiquidButton } from "@/components/ui/liquid-button";
 import { WaveText } from "@/components/ui/wave-text";
 import { PhotoGallery } from "./PhotoGallery";
 
 export function HomePage() {
+  const router = useRouter();
   const [reveal, setReveal] = useState(false);
+
+  const buttonEvents = useMemo(
+    () => ({ click: () => router.push("/projects") }),
+    [router]
+  );
 
   useEffect(() => {
     const reduced =
@@ -40,7 +47,11 @@ export function HomePage() {
           Music, Sound, and Culture.
         </p>
         <div className="home-reveal-item pt-4">
-          <HoverButton href="/projects">View my work</HoverButton>
+          <LiquidButton
+            label="View my work"
+            events={buttonEvents}
+            className="rounded-full px-8 py-3 text-base font-medium"
+          />
         </div>
       </section>
 
