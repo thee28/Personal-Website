@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useEffect, useState, useCallback } from "react";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "@/components/motion/theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -258,7 +258,7 @@ export function Header({ initialTheme }: HeaderProps) {
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <ThemeToggle initialTheme={initialTheme} />
+            <ThemeToggle initialTheme={initialTheme} variant="rectangle" />
           </div>
             </div>
           </div>
