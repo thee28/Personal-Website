@@ -91,7 +91,7 @@ class Renderer {
     }
 
     // Smoke is low-frequency/blurry — rendering above 1.5x wastes GPU on phones (DPR 3)
-    const dpr = Math.min(Math.max(1, window.devicePixelRatio), 1.5);
+    const dpr = Math.min(Math.max(1, window.devicePixelRatio), 1.25);
     const { innerWidth: width, innerHeight: height } = window;
     this.canvas.width = width * dpr;
     this.canvas.height = height * dpr;
@@ -279,8 +279,8 @@ export function SmokeBackground({
     let animationFrameId = 0;
     let paused = false;
     let lastFrame = 0;
-    // Smoke drifts slowly (time * 0.01 in the shader) — 30fps is visually identical
-    const frameInterval = 1000 / 30;
+    // Smoke drifts slowly (time * 0.01 in the shader) — 24fps is visually identical
+    const frameInterval = 1000 / 24;
 
     const loop = (now: number) => {
       animationFrameId = window.requestAnimationFrame(loop);
