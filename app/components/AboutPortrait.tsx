@@ -9,7 +9,7 @@ const SPRING = {
   mass: 0.7,
 };
 
-const IMAGE_SRC = "https://i.imgur.com/teVSvu0.jpeg";
+const IMAGE_SRC = "https://i.imgur.com/gPjRCKT.jpeg";
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
