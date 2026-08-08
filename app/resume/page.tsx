@@ -8,13 +8,10 @@ export default function Resume() {
 
   return (
     <div className="space-y-12 animate-children-in">
-      <header className="space-y-2">
+      <header>
         <h1 className="text-4xl md:text-5xl font-medium tracking-tight">
           Resume
         </h1>
-        <p className="text-[var(--muted)] text-lg">
-          View or download my resume.
-        </p>
       </header>
 
       <div className="rounded-2xl overflow-hidden border border-[var(--foreground)]/10 bg-[var(--foreground)]/5">

@@ -3,13 +3,10 @@ import AboutPortrait from "../components/AboutPortrait";
 export default function About() {
   return (
     <div className="space-y-12 lg:space-y-16 animate-children-in">
-      <header className="space-y-2">
+      <header>
         <h1 className="text-4xl md:text-5xl font-medium tracking-tight">
           About
         </h1>
-        <p className="text-[var(--muted)] text-lg">
-          A little more about me.
-        </p>
       </header>
 
       <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">

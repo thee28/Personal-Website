@@ -26,13 +26,10 @@ export default function Projects() {
 
   return (
     <div className="space-y-16 animate-children-in">
-      <header className="space-y-2">
+      <header>
         <h1 className="text-4xl md:text-5xl font-medium tracking-tight">
           Projects
         </h1>
-        <p className="text-[var(--muted)] text-lg">
-          Things I&apos;ve worked on along the way.
-        </p>
       </header>
 
       <div className="space-y-8">
