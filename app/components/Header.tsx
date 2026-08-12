@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/motion/theme-toggle";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/resume", label: "Resume" },
+  { href: "/resume.pdf", label: "Resume", external: true },
   { href: "/about", label: "About" },
 ];
 
@@ -179,20 +179,32 @@ export function Header({ initialTheme }: HeaderProps) {
               <div className="relative flex w-max max-w-full items-center justify-start gap-5 md:gap-7">
                 {navItems.map((item) => {
                   const isItemActive =
-                    pathname === item.href ||
-                    (item.href !== "/" && pathname.startsWith(item.href));
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`
+                    !item.external &&
+                    (pathname === item.href ||
+                      (item.href !== "/" && pathname.startsWith(item.href)));
+                  const linkClassName = `
                       relative shrink-0 py-1.5 text-sm font-medium whitespace-nowrap transition-colors duration-200
                       ${
                         isItemActive
                           ? "text-[var(--foreground)]"
                           : "text-[var(--muted)] hover:text-[var(--foreground)]"
                       }
-                    `}
+                    `;
+                  return item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClassName}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={linkClassName}
                     >
                       {item.label}
                     </Link>
